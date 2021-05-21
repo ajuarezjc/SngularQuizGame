@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GameControllerViewController.swift
 //  SngularQuizGame
 //
 //  Created by Alejandro Juarez on 20/05/21.
@@ -7,13 +7,12 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GameControllerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
     }
 
-
 }
-

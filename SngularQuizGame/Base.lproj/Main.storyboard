@@ -1,24 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dpE-lE-RE8">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Welcome View Controller-->
+        <scene sceneID="Nc5-5r-DZQ">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="dpE-lE-RE8" customClass="WelcomeViewController" customModule="SngularQuizGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="M9K-Ee-ytD">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="Ult-Sc-vQi">
+                                <rect key="frame" x="10" y="388" width="394" height="130.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to this Sngular Quiz Game" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rj5-nL-Y0Y">
+                                        <rect key="frame" x="43" y="0.0" width="308" height="69.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p3R-TJ-18x">
+                                        <rect key="frame" x="150.5" y="88.5" width="93" height="42"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <state key="normal" title="Let's go!"/>
+                                        <connections>
+                                            <action selector="buttonLetsGoPressed:" destination="dpE-lE-RE8" eventType="touchUpInside" id="tYp-o7-mjR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Pzk-df-9hf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ult-Sc-vQi" firstAttribute="centerY" secondItem="Pzk-df-9hf" secondAttribute="centerY" id="0ew-hl-wAj"/>
+                            <constraint firstItem="Ult-Sc-vQi" firstAttribute="leading" secondItem="Pzk-df-9hf" secondAttribute="leading" constant="10" id="hNl-qW-hhk"/>
+                            <constraint firstAttribute="trailing" secondItem="Ult-Sc-vQi" secondAttribute="trailing" constant="10" id="zk6-XP-nzx"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <segue destination="6p5-6b-agV" kind="presentation" identifier="segueToQuestions" modalPresentationStyle="fullScreen" id="vge-ZF-bc3"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5jg-WN-HGb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-768.11594202898561" y="85.714285714285708"/>
+        </scene>
+        <!--The Game-->
+        <scene sceneID="1oM-qP-qJo">
+            <objects>
+                <viewController id="dlR-8Z-Q2N" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rkx-AC-Pr7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6gR-sm-O8G">
+                                <rect key="frame" x="10" y="138" width="394" height="80.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAu-52-3a0">
+                                        <rect key="frame" x="176.5" y="0.0" width="41.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZY-1N-Hde">
+                                        <rect key="frame" x="174" y="20.5" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKB-M5-mqL">
+                                        <rect key="frame" x="174" y="50.5" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uxu-u0-pcG">
+                                <rect key="frame" x="10" y="791.5" width="394" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vzi-QQ-lQl"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6gR-sm-O8G" firstAttribute="leading" secondItem="vzi-QQ-lQl" secondAttribute="leading" constant="10" id="Bqx-od-YE5"/>
+                            <constraint firstItem="Uxu-u0-pcG" firstAttribute="leading" secondItem="vzi-QQ-lQl" secondAttribute="leading" constant="10" id="EDk-p0-0jb"/>
+                            <constraint firstItem="vzi-QQ-lQl" firstAttribute="trailing" secondItem="6gR-sm-O8G" secondAttribute="trailing" constant="10" id="IfC-dt-MLe"/>
+                            <constraint firstItem="6gR-sm-O8G" firstAttribute="top" secondItem="vzi-QQ-lQl" secondAttribute="top" constant="50" id="LiQ-HI-JhD"/>
+                            <constraint firstItem="vzi-QQ-lQl" firstAttribute="trailing" secondItem="Uxu-u0-pcG" secondAttribute="trailing" constant="10" id="WJ1-vV-F2v"/>
+                            <constraint firstItem="Uxu-u0-pcG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6gR-sm-O8G" secondAttribute="bottom" constant="50" id="mMo-AL-ebh"/>
+                            <constraint firstItem="vzi-QQ-lQl" firstAttribute="bottom" secondItem="Uxu-u0-pcG" secondAttribute="bottom" constant="50" id="twC-EA-Zd7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="The Game" id="SYg-JK-ZfD"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fB3-Q8-30E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="643" y="86"/>
+        </scene>
+        <!--Sngular Quiz Game-->
+        <scene sceneID="UH6-im-08E">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6p5-6b-agV" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Sngular Quiz Game" id="Qhh-VL-NTE"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="RjW-Vg-F9o">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dlR-8Z-Q2N" kind="relationship" relationship="rootViewController" id="meU-bc-Tag"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BcW-jc-6Rk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-71" y="86"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
