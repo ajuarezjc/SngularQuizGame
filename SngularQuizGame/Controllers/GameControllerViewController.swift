@@ -78,7 +78,7 @@ class GameControllerViewController: UIViewController {
         buttonOptionA.isEnabled = true
         buttonOptionB.isEnabled = true
         //Update the counter label
-        questionCounter.text = "\(game.currentQuestionIndex)/\(game.totalQuestions)"
+        questionCounter.text = "\(game.currentQuestionIndex + 1)/\(game.totalQuestions)"
     }
     
     // MARK: - IB Actions

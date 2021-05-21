@@ -40,7 +40,7 @@ struct GameModel {
     }
     
     var gameIsOver : Bool {
-        return currentQuestionIndex == totalQuestions
+        return (currentQuestionIndex + 1) == totalQuestions
     }
     
     init(withQuestions questionsForGame : [QuestionModel]) {
