@@ -28,6 +28,7 @@ class GameControllerViewController: UIViewController {
             //Init the game
             game = GameModel(withQuestions: questionsForGame)
             game.shuffleQuestions()
+            updateQuestionInView()
         }
         
         //Setting tags for buttons for easy answer check
@@ -38,7 +39,7 @@ class GameControllerViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         //Set the initial question and options
-        updateQuestionInView()
+        //updateQuestionInView()
     }
     
     // MARK: - Controller Functions
@@ -48,8 +49,8 @@ class GameControllerViewController: UIViewController {
         if let path = Bundle.main.path(forResource: "Questions", ofType: "json"){
             do{
                 let data = try Data(contentsOf: URL(fileURLWithPath: path))
-                let questions = try JSONDecoder().decode([QuestionModel].self, from: data)
-                return questions
+                let questions = try JSONDecoder().decode(QuizData.self, from: data)
+                return questions.Questions
             } catch let err {
                 //Something wrong happened, return nil
                 print("Error while getting questions:\n"+err.localizedDescription)
@@ -73,6 +74,9 @@ class GameControllerViewController: UIViewController {
         buttonOptionA.setTitle(game.currentQuestion.OptionA, for: .normal)
         //Option B
         buttonOptionB.setTitle(game.currentQuestion.OptionB, for: .normal)
+        //Enable buttons back
+        buttonOptionA.isEnabled = true
+        buttonOptionB.isEnabled = true
         //Update the counter label
         questionCounter.text = "\(game.currentQuestionIndex)/\(game.totalQuestions)"
     }
@@ -81,6 +85,9 @@ class GameControllerViewController: UIViewController {
     
     //Action when either button is pressed
     @IBAction func buttonAnswerSelected(_ sender: UIButton) {
+        //Block buttons until next question
+        buttonOptionA.isEnabled = false
+        buttonOptionB.isEnabled = false
         //Get the tag of the button pressed
         let buttonTagPressed = sender.tag
         //Get the answer for this question

@@ -7,6 +7,10 @@
 
 import Foundation
 
+struct QuizData : Decodable{
+    let Questions : [QuestionModel]
+}
+
 struct QuestionModel : Decodable{
     let Question : String
     let OptionA : String
