@@ -55,26 +55,26 @@
         <!--The Game-->
         <scene sceneID="1oM-qP-qJo">
             <objects>
-                <viewController id="dlR-8Z-Q2N" sceneMemberID="viewController">
+                <viewController id="dlR-8Z-Q2N" customClass="GameControllerViewController" customModule="SngularQuizGame" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rkx-AC-Pr7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6gR-sm-O8G">
-                                <rect key="frame" x="10" y="138" width="394" height="80.5"/>
+                                <rect key="frame" x="10" y="138" width="394" height="603.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAu-52-3a0">
-                                        <rect key="frame" x="176.5" y="0.0" width="41.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zAu-52-3a0">
+                                        <rect key="frame" x="176.5" y="0.0" width="41.5" height="153.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZY-1N-Hde">
-                                        <rect key="frame" x="174" y="20.5" width="46" height="30"/>
+                                        <rect key="frame" x="174" y="153.5" width="46" height="225"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKB-M5-mqL">
-                                        <rect key="frame" x="174" y="50.5" width="46" height="30"/>
+                                        <rect key="frame" x="174" y="378.5" width="46" height="225"/>
                                         <state key="normal" title="Button"/>
                                     </button>
                                 </subviews>
@@ -94,11 +94,16 @@
                             <constraint firstItem="vzi-QQ-lQl" firstAttribute="trailing" secondItem="6gR-sm-O8G" secondAttribute="trailing" constant="10" id="IfC-dt-MLe"/>
                             <constraint firstItem="6gR-sm-O8G" firstAttribute="top" secondItem="vzi-QQ-lQl" secondAttribute="top" constant="50" id="LiQ-HI-JhD"/>
                             <constraint firstItem="vzi-QQ-lQl" firstAttribute="trailing" secondItem="Uxu-u0-pcG" secondAttribute="trailing" constant="10" id="WJ1-vV-F2v"/>
-                            <constraint firstItem="Uxu-u0-pcG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6gR-sm-O8G" secondAttribute="bottom" constant="50" id="mMo-AL-ebh"/>
+                            <constraint firstItem="Uxu-u0-pcG" firstAttribute="top" relation="lessThanOrEqual" secondItem="6gR-sm-O8G" secondAttribute="bottom" constant="50" id="mMo-AL-ebh"/>
                             <constraint firstItem="vzi-QQ-lQl" firstAttribute="bottom" secondItem="Uxu-u0-pcG" secondAttribute="bottom" constant="50" id="twC-EA-Zd7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="The Game" id="SYg-JK-ZfD"/>
+                    <connections>
+                        <outlet property="buttonOptionA" destination="FZY-1N-Hde" id="y9F-Ap-6jk"/>
+                        <outlet property="buttonOptionB" destination="nKB-M5-mqL" id="bGy-cc-LD3"/>
+                        <outlet property="labelQuestionText" destination="zAu-52-3a0" id="aeD-XL-0X5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fB3-Q8-30E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
