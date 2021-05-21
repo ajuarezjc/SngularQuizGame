@@ -72,10 +72,16 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FZY-1N-Hde">
                                         <rect key="frame" x="174" y="153.5" width="46" height="225"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonAnswerSelected:" destination="dlR-8Z-Q2N" eventType="touchUpInside" id="e4c-kd-Wta"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKB-M5-mqL">
                                         <rect key="frame" x="174" y="378.5" width="46" height="225"/>
                                         <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="buttonAnswerSelected:" destination="dlR-8Z-Q2N" eventType="touchUpInside" id="9Po-ei-y7e"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -103,6 +109,7 @@
                         <outlet property="buttonOptionA" destination="FZY-1N-Hde" id="y9F-Ap-6jk"/>
                         <outlet property="buttonOptionB" destination="nKB-M5-mqL" id="bGy-cc-LD3"/>
                         <outlet property="labelQuestionText" destination="zAu-52-3a0" id="aeD-XL-0X5"/>
+                        <outlet property="questionCounter" destination="Uxu-u0-pcG" id="5Wf-Hi-Zel"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fB3-Q8-30E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
