@@ -17,7 +17,7 @@ class GameControllerViewController: UIViewController {
     
     /*Controller Variables*/
     var game : GameModel!
-    var timeBetweenQuestions = 2.0
+    var timeBetweenQuestions = 0.5
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,7 +69,7 @@ class GameControllerViewController: UIViewController {
         }
         //Display current question in View
         //Question
-        labelQuestionText.text = game.currentQuestion.Question
+        labelQuestionText.text = game.currentQuestion.Question + "?"
         //Option A
         buttonOptionA.setTitle(game.currentQuestion.OptionA, for: .normal)
         //Option B
@@ -100,17 +100,22 @@ class GameControllerViewController: UIViewController {
         //Check if we were at the last question
         if(game.gameIsOver){
             //Alert the end is over and show results
-            let (correctAnswers, incorrectAnswers) = game.getResults()
-            let message = "Correctas: \(correctAnswers)\nIncorrectas: \(incorrectAnswers)\n"
-            
+            let (correctAnswers, incorrectAnswers, finalMark) = game.getResults()
+            let finalNote = (finalMark >= 60.0) ? "¡Buen trabajo!" : "¡Más suerte la próxima!"
+            let message = "\nCorrectas: \(correctAnswers)\nIncorrectas: \(incorrectAnswers)\n\nPuntaje: \(String(format: "%.1f", finalMark))%" + "\n\(finalNote)\n"
             let alertGameOver = UIAlertController(title: "¡Eso fue todo!", message: message, preferredStyle: .alert)
             
-            let buttonRepeatGame = UIAlertAction(title: "Jugar otra vez", style: .destructive) {[unowned self] (action) in
+            let buttonRepeatGame = UIAlertAction(title: "Jugar otra vez", style: .default) {[unowned self] (action) in
                 game.resetGame()
                 updateQuestionInView()
             }
+            let buttonQuitGame = UIAlertAction(title: "Finalizar", style: .destructive) { [unowned self] (action) in
+                self.dismiss(animated: true) {
+                }
+            }
             
             alertGameOver.addAction(buttonRepeatGame)
+            alertGameOver.addAction(buttonQuitGame)
             
             present(alertGameOver, animated: true) {
             }
@@ -125,6 +130,11 @@ class GameControllerViewController: UIViewController {
         }
     }
     
+    //Button when button Cancel is pressed
+    @IBAction func buttonCancelPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true) {
+        }
+    }
     
 
 }

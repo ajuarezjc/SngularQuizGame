@@ -74,8 +74,9 @@ struct GameModel {
         }
     }
     
-    func getResults()->(rightAnswers : Int, wrongAnswers: Int){
-        return (self.rightGuesses, self.wrongGuesses)
+    func getResults()->(rightAnswers : Int, wrongAnswers: Int, finalMark : Double){
+        let mark = (Double(self.rightGuesses) * 100.0) / Double(self.totalQuestions)
+        return (self.rightGuesses, self.wrongGuesses, mark)
     }
     
 }
